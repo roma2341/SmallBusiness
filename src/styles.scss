@@ -1,2 +1,25 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import "~material-design-icons/iconfont/material-icons.css";
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.full-width{
+    width:100%;
+}
+.centered-card-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+}
+.small-size-container{
+    width: 400px;
+}
+.text-align-center{
+    text-align:center;
+}
+.justify-content-center{
+   justify-content: center;
+}
