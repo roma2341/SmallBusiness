@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistrationPageModule } from './pages/registration/registration-page.module';
+import { RegistrationPageModule } from './pages/auth/registration/registration-page.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { RegistrationPageModule } from './pages/registration/registration-page.m
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RegistrationPageModule
+    RegistrationPageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
