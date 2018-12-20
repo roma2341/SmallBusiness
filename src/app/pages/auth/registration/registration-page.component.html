@@ -70,7 +70,7 @@
 
                        <mat-form-field class="full-width">
                           <mat-label>Password</mat-label>
-                          <input [(ngModel)]="user.password" #password="ngModel" matInput  placeholder="Password"  name="password" required>
+                          <input [(ngModel)]="user.password" #password="ngModel" matInput  placeholder="Password"  name="password" validateEqual="confirmationPassword" reverse="true" required>
                             <!-- password Validation errors-->
                             <mat-error *ngIf="password.invalid && (password.dirty || password.touched)"
                             class="alert alert-danger">
@@ -84,13 +84,16 @@
 
                        <mat-form-field class="full-width">
                         <mat-label>Password confirmation</mat-label>
-                        <input ngModel #confirmationPassword="ngModel" matInput  placeholder="Confirmation password"  name="confirmation_password" required>
+                        <input ngModel #confirmationPassword="ngModel" matInput  placeholder="Confirmation password"  name="confirmation_password" validateEqual="password" required>
                          <!-- confirmationPassword Validation errors-->
-                         <mat-error *ngIf="confirmationPassword.invalid && (confirmationPassword.dirty || confirmationPassword.touched)"
+                         <mat-error *ngIf="(confirmationPassword.value != password.value) || (confirmationPassword.invalid && (confirmationPassword.dirty || confirmationPassword.touched))"
                          class="alert alert-danger">
-                             <span *ngIf="confirmationPassword.errors.required">
+                             <span *ngIf="confirmationPassword.errors?.required">
                            Field is required.
                              </span>
+                             <span *ngIf="confirmationPassword.value != password.value ">
+                              Passwords must be equals.
+                              </span>
                         </mat-error>
                         <!-- End of validation errors for confirmationPassword-->
                      </mat-form-field>
