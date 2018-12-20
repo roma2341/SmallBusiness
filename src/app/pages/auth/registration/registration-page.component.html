@@ -11,24 +11,89 @@
                 <form class="my-form">
                       <mat-form-field class="full-width">
                           <mat-label>First Name</mat-label>
-                          <input  matInput  placeholder="First name"  name="fname"  required>
-                       </mat-form-field>
+                          <input  matInput [(ngModel)]="user.firstName" #firstName="ngModel"   placeholder="First name"  name="fname"  required>
+                          <!-- Validation errors-->
+                          <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                          class="alert alert-danger">
+                              <span *ngIf="firstName.errors.required">
+                              Field is required.
+                              </span>
+                         </mat-error>
+                         <!-- End of validation errors for firstName-->
+                        </mat-form-field>
+
+
                        <mat-form-field class="full-width">
                           <mat-label>Last Name</mat-label>
-                          <input  matInput  placeholder="Last Name" name="lname"  required>
+                          <input [(ngModel)]="user.lastName" #lastName="ngModel"  matInput  placeholder="Last Name" name="lname"  required>
+                          <!-- lastName Validation errors-->
+                          <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                          class="alert alert-danger">
+                              <span *ngIf="lastName.errors.required">
+                              Field is required.
+                              </span>
+                         </mat-error>
+                         <!-- End of validation errors for lastName-->
                        </mat-form-field>
+
+
                        <mat-form-field class="full-width">
                           <mat-label>Address</mat-label>
-                          <input  matInput  placeholder="Address" name="address"  required>
-                       </mat-form-field>
+                          <input [(ngModel)]="user.address" #address="ngModel" matInput  placeholder="Address" name="address"  required>
+                            <!-- address Validation errors-->
+                          <mat-error *ngIf="address.invalid && (address.dirty || address.touched)"
+                          class="alert alert-danger">
+                              <span *ngIf="address.errors.required">
+                              Field is required.
+                              </span>
+                         </mat-error>
+                         <!-- End of validation errors for address-->
+                        </mat-form-field>
+
+
                        <mat-form-field class="full-width">
                           <mat-label>Email</mat-label>
-                          <input  matInput  placeholder="Email" name="email">
+                          <input [(ngModel)]="user.email" #email="ngModel" matInput  placeholder="Email" name="email" email required>
+                           <!-- email Validation errors-->
+                           <mat-error *ngIf="email.invalid && (email.dirty || email.touched)"
+                           class="alert alert-danger">
+                               <span *ngIf="email.errors.required">
+                               Field is required.
+                               </span>
+                               <span *ngIf="email.errors.email">
+                                 Field should be email.
+                                 </span>
+                          </mat-error>
+                          <!-- End of validation errors for address-->
                        </mat-form-field>
+
+
                        <mat-form-field class="full-width">
                           <mat-label>Password</mat-label>
-                          <input  matInput  placeholder="Password"  name="password">
-                       </mat-form-field>
+                          <input [(ngModel)]="user.password" #password="ngModel" matInput  placeholder="Password"  name="password" required>
+                            <!-- password Validation errors-->
+                            <mat-error *ngIf="password.invalid && (password.dirty || password.touched)"
+                            class="alert alert-danger">
+                                <span *ngIf="password.errors.required">
+                              Field is required.
+                                </span>
+                           </mat-error>
+                           <!-- End of validation errors for address--> 
+                        </mat-form-field>
+
+
+                       <mat-form-field class="full-width">
+                        <mat-label>Password confirmation</mat-label>
+                        <input ngModel #confirmationPassword="ngModel" matInput  placeholder="Confirmation password"  name="confirmation_password" required>
+                         <!-- confirmationPassword Validation errors-->
+                         <mat-error *ngIf="confirmationPassword.invalid && (confirmationPassword.dirty || confirmationPassword.touched)"
+                         class="alert alert-danger">
+                             <span *ngIf="confirmationPassword.errors.required">
+                           Field is required.
+                             </span>
+                        </mat-error>
+                        <!-- End of validation errors for confirmationPassword-->
+                     </mat-form-field>
                 </form>
               </mat-card-content>
               <mat-card-actions class="text-align-center">

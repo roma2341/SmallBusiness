@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/security/models/user.model';
 
 @Component({
   selector: 'app-registration-page',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration-page.component.scss']
 })
 export class RegistrationPageComponent implements OnInit {
-
-  constructor() { }
+  user:User;
+  constructor() {
+    this.user = new User();
+  }
 
   ngOnInit() {
   }
