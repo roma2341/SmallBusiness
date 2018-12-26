@@ -1,0 +1,48 @@
+<body class="blue">
+
+
+    <div class="centered-card-holder">
+      <form #f="ngForm" (ngSubmit)="onFormSubmit(f)" novalidate class="my-form small-size-container">
+            <mat-toolbar class="justify-content-center" color="primary">
+                <span>Login</span>
+            </mat-toolbar>
+            <mat-card>
+              <mat-card-content>
+                         <mat-form-field class="full-width">
+                            <mat-label>Email</mat-label>
+                            <input [(ngModel)]="email" #emailControl="ngModel" matInput  placeholder="Email" name="email" email required>
+                             <!-- email Validation errors-->
+                             <mat-error *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)"
+                             class="alert alert-danger">
+                                 <span *ngIf="emailControl.errors.required">
+                                 Field is required.
+                                 </span>
+                                 <span *ngIf="emailControl.errors.email">
+                                   Field should be email.
+                                   </span>
+                            </mat-error>
+                            <!-- End of validation errors for address-->
+                         </mat-form-field>
+  
+  
+                         <mat-form-field class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input [(ngModel)]="password" #passwordControl="ngModel" matInput  placeholder="Password"  name="password" required>
+                              <!-- password Validation errors-->
+                              <mat-error *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)"
+                              class="alert alert-danger">
+                                  <span *ngIf="passwordControl.errors.required">
+                                Field is required.
+                                  </span>
+                             </mat-error>
+                             <!-- End of validation errors for address--> 
+                          </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions class="text-align-center">
+                    <button type="submit" mat-raised-button color="primary">Submit</button>
+                 </mat-card-actions>
+            </mat-card>
+          </form>
+    </div>
+  
+  </body>

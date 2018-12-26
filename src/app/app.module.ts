@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationPageModule } from './pages/auth/registration/registration-page.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoginPageModule } from './pages/auth/login-page/login-page.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     RegistrationPageModule,
+    LoginPageModule,
     BrowserAnimationsModule
   ],
   providers: [],
