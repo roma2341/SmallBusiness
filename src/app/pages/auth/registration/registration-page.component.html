@@ -2,13 +2,12 @@
 
 
   <div class="centered-card-holder">
-      <div class="small-size-container">
+    <form #f="ngForm" (ngSubmit)="onFormSubmit(f)" novalidate class="my-form small-size-container">
           <mat-toolbar class="justify-content-center" color="primary">
               <span>Registration</span>
           </mat-toolbar>
           <mat-card>
             <mat-card-content>
-                <form class="my-form">
                       <mat-form-field class="full-width">
                           <mat-label>First Name</mat-label>
                           <input  matInput [(ngModel)]="user.firstName" #firstName="ngModel"   placeholder="First name"  name="fname"  required>
@@ -97,13 +96,13 @@
                         </mat-error>
                         <!-- End of validation errors for confirmationPassword-->
                      </mat-form-field>
-                </form>
+
               </mat-card-content>
               <mat-card-actions class="text-align-center">
-                  <button mat-raised-button color="primary">REGISTER</button>
+                  <button type="submit" mat-raised-button color="primary">REGISTER</button>
                </mat-card-actions>
           </mat-card>
-      </div>
+        </form>
   </div>
 
 </body>
